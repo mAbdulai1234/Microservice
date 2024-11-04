@@ -1,2 +1,2 @@
-# Microservice
-hi
+# Microservices-Based Product Service API for E-Commerce
+This project focuses on building a microservices-based Product Service API designed for an e-commerce platform. The service, written in Go, supports basic product management functionalities such as retrieving and adding products. It employs HTTP endpoints to handle client requests, utilizing JSON for data interchange to maintain simplicity and efficiency. The code provides a foundational structure for a microservice that can be scaled or integrated into a larger system. This project reinforces key software engineering principles, such as handling HTTP requests, structuring data with Go slices, and building RESTful APIs, which are crucial for creating scalable, real-world web applications.
