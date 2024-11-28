@@ -6,17 +6,14 @@ import (
     "net/http"
 )
 
-// Product struct to represent product data
 type Product struct {
     ID    int     `json:"id"`
     Name  string  `json:"name"`
     Price float32 `json:"price"`
 }
 
-// Slice to store products
 var products []Product
 
-// Handler to retrieve all products
 func getProductsHandler(w http.ResponseWriter, r *http.Request) {
     if r.Method != http.MethodGet {
         http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
@@ -26,7 +23,6 @@ func getProductsHandler(w http.ResponseWriter, r *http.Request) {
     json.NewEncoder(w).Encode(products)
 }
 
-// Handler to add a new product
 func addProductHandler(w http.ResponseWriter, r *http.Request) {
     if r.Method != http.MethodPost {
         http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
@@ -40,7 +36,6 @@ func addProductHandler(w http.ResponseWriter, r *http.Request) {
         return
     }
 
-    // Assign a unique ID to the new product
     newProduct.ID = len(products) + 1
     products = append(products, newProduct)
 
@@ -48,7 +43,6 @@ func addProductHandler(w http.ResponseWriter, r *http.Request) {
     fmt.Fprintf(w, "Product added with ID: %d", newProduct.ID)
 }
 
-// Main function to start the server and set up routes
 func main() {
     http.HandleFunc("/products", getProductsHandler)
     http.HandleFunc("/addProduct", addProductHandler)
